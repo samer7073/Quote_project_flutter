@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
 
-
 class QuoteCard extends StatelessWidget {
   final Quote quote;
-  QuoteCard({ required this.quote});
+   final  Function() delete;
+  QuoteCard({required this.quote,required this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class QuoteCard extends StatelessWidget {
                   color: Colors.grey[700],
                 ),
               ),
-              SizedBox(height: 6.0),
+              const SizedBox(height: 6.0),
               Text(
                 quote.author,
                 style: TextStyle(
@@ -30,6 +30,18 @@ class QuoteCard extends StatelessWidget {
                   color: Colors.grey[900],
                 ),
               ),
+              const SizedBox(
+                height: 8,
+              ),
+              TextButton(
+                onPressed: delete,
+                child: const Text(
+                  "delete quote",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              )
             ],
           ),
         ));

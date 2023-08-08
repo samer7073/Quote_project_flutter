@@ -46,7 +46,15 @@ class _QoutesState extends State<Qoutes> {
           )),
         ),
         body: Column(
-          children: list.map((quote) => QuoteCard(quote: quote)).toList(),
+          children: list
+              .map((quote) => QuoteCard(
+                  quote: quote,
+                  delete: () {
+                    setState(() {
+                      list.remove(quote);
+                    });
+                  }))
+              .toList(),
         ));
   }
 }
